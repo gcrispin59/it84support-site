@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
   <head>
     <!-- Booking page placeholder for future Microsoft Bookings integration -->
     <meta charset="UTF-8" />
@@ -7,8 +7,10 @@
     <title>IT84 Support | Booking</title>
     <meta
       name="description"
-      content="Book a consult with IT84 Support. Booking integration coming soon."
+      content="Book a small-business IT consult with IT84 Support. Fast, practical support for teams under 25 employees."
     />
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://www.it84support.com.au/booking.html" />
     <!-- Favicon 32x32 PNG -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
     <link rel="stylesheet" href="styles.css" />
@@ -26,9 +28,36 @@
           />
         </div>
         <nav class="nav">
+          <a href="index.html">Home</a>
+          <div class="nav-group">
+            <!-- Services dropdown -->
+            <button class="nav-button" type="button" aria-haspopup="true">
+              Services
+            </button>
+            <div class="nav-dropdown">
+              <a href="cloud-services.html">Cloud Services & Secure AI</a>
+              <a href="computer-maintenance.html">Computer Systems Maintenance</a>
+              <a href="custom-builds.html">Custom Builds & Upgrades</a>
+              <a href="os-installation.html">Operating System Installation</a>
+            </div>
+          </div>
           <a href="index.html#results">Results</a>
-          <a href="index.html#services">Services</a>
-          <a href="index.html#security">Data Security</a>
+          <a href="index.html#security">Security</a>
+          <div class="nav-group">
+            <!-- Resources dropdown -->
+            <button class="nav-button" type="button" aria-haspopup="true">
+              Resources
+            </button>
+            <div class="nav-dropdown">
+              <a href="index.html#engagement">RSS Feeds</a>
+              <a href="https://www.microsoft.com/microsoft-365/blog/" target="_blank" rel="noopener"
+                >Microsoft 365 Updates</a
+              >
+              <a href="https://practical365.com/blog/" target="_blank" rel="noopener"
+                >Practical365</a
+              >
+            </div>
+          </div>
           <a href="index.html#contact">Contact</a>
           <a href="booking.html" aria-current="page">Booking</a>
         </nav>
@@ -43,7 +72,7 @@
           We are setting up an online booking page for IT84 Support.
         </p>
         <p>
-          This page will link to Microsoft Bookings for Sam Bruce’s business
+          This page will link to Microsoft Bookings for Sam Bruce's business
           applications once the live URL is available.
         </p>
         <div class="card">
@@ -65,7 +94,7 @@
     <footer class="site-footer">
       <div class="container">
         <p>Drop us a line!</p>
-        <p>© 2026 IT84 Support. All rights reserved.</p>
+        <p>(c) 2026 IT84 Support. All rights reserved.</p>
       </div>
     </footer>
   </body>

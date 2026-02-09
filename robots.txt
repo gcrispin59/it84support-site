@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.it84support.com.au/sitemap.xml
