@@ -141,7 +141,10 @@ body {
 }
 
 /* Engagement section */
-.engagement-grid {
+.engagement-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.2fr);
+  gap: 18px;
   margin-bottom: 24px;
 }
 
@@ -162,6 +165,63 @@ body {
 
 .link-list a:hover {
   text-decoration: underline;
+}
+
+/* RSS ticker */
+.ticker {
+  margin-top: 16px;
+  background: #0d1b2a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.ticker-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #9fd3ff;
+  margin-bottom: 10px;
+}
+
+.ticker-note {
+  font-style: italic;
+  text-transform: none;
+}
+
+.ticker-track {
+  display: flex;
+  gap: 24px;
+  white-space: nowrap;
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ticker-item:hover,
+.ticker-item:focus-visible {
+  text-decoration: underline;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Banner links */
@@ -370,6 +430,10 @@ body {
   .header-inner {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .engagement-layout {
+    grid-template-columns: 1fr;
   }
 
   .contact-grid {

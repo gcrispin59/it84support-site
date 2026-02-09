@@ -194,10 +194,28 @@
           We share trusted alerts and practical guidance to help SMBs stay
           secure and productive.
         </p>
-        <div class="grid engagement-grid">
+        <div class="engagement-layout">
           <article class="card">
             <h3>RSS Feed Sources (Free/Subscription)</h3>
             <ul class="link-list">
+              <li>
+                <strong>Australia:</strong>
+                <a
+                  href="https://www.cyber.gov.au/rss/alerts"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  ACSC Alerts
+                </a>
+                ,
+                <a
+                  href="https://www.scamwatch.gov.au/rss.xml"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Scamwatch
+                </a>
+              </li>
               <li>
                 <a href="https://krebsonsecurity.com/feed/" target="_blank" rel="noopener"
                   >Krebs on Security</a
@@ -213,8 +231,24 @@
                   >CSO Online</a
                 >
               </li>
+              <li>
+                <a href="https://www.bleepingcomputer.com/feed/" target="_blank" rel="noopener"
+                  >BleepingComputer</a
+                >
+              </li>
+              <li>
+                <a href="https://www.microsoft.com/en-us/security/blog/feed/" target="_blank" rel="noopener"
+                  >Microsoft Security Blog</a
+                >
+              </li>
+              <li>
+                <a href="https://practical365.com/blog/feed/" target="_blank" rel="noopener"
+                  >Practical365</a
+                >
+              </li>
             </ul>
           </article>
+
           <article class="card">
             <h3>Security & Scam Prevention (Critical for SMBs)</h3>
             <p>
@@ -225,6 +259,16 @@
               Ask us about staff awareness training and security readiness
               checklists.
             </p>
+            <div class="ticker">
+              <div class="ticker-header">
+                <span>Live headlines</span>
+                <span class="ticker-note">hover to pause</span>
+              </div>
+              <!-- Headlines are injected by the script below -->
+              <div class="ticker-track" id="rss-ticker">
+                <span class="ticker-item">Loading headlines…</span>
+              </div>
+            </div>
           </article>
         </div>
 
@@ -335,5 +379,97 @@
         <p>© 2026 IT84 Support. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- RSS ticker loader -->
+    <script>
+      // Simple RSS headline ticker using a free CORS proxy (All Origins).
+      // If a feed blocks requests, its headlines will be skipped.
+      (function () {
+        const feeds = [
+          {
+            name: "ACSC Alerts (Australia)",
+            url: "https://www.cyber.gov.au/rss/alerts",
+          },
+          {
+            name: "Scamwatch (Australia)",
+            url: "https://www.scamwatch.gov.au/rss.xml",
+          },
+          {
+            name: "Krebs on Security",
+            url: "https://krebsonsecurity.com/feed/",
+          },
+          {
+            name: "CISA Alerts",
+            url: "https://www.cisa.gov/news-events/cybersecurity-advisories",
+          },
+          {
+            name: "CSO Online",
+            url: "https://www.csoonline.com/feed/",
+          },
+          {
+            name: "BleepingComputer",
+            url: "https://www.bleepingcomputer.com/feed/",
+          },
+          {
+            name: "Microsoft Security Blog",
+            url: "https://www.microsoft.com/en-us/security/blog/feed/",
+          },
+          {
+            name: "Practical365",
+            url: "https://practical365.com/blog/feed/",
+          },
+        ];
+
+        const ticker = document.getElementById("rss-ticker");
+        if (!ticker) return;
+
+        const proxy = "https://api.allorigins.win/raw?url=";
+
+        function parseRss(xmlText) {
+          const parser = new DOMParser();
+          const xml = parser.parseFromString(xmlText, "text/xml");
+          const items = Array.from(xml.querySelectorAll("item")).slice(0, 5);
+          return items.map((item) => ({
+            title: item.querySelector("title")?.textContent?.trim() || "",
+            link: item.querySelector("link")?.textContent?.trim() || "",
+          }));
+        }
+
+        Promise.all(
+          feeds.map((feed) =>
+            fetch(proxy + encodeURIComponent(feed.url))
+              .then((res) => res.text())
+              .then((text) => ({ feed, items: parseRss(text) }))
+              .catch(() => ({ feed, items: [] }))
+          )
+        ).then((results) => {
+          const headlines = results
+            .flatMap((result) =>
+              result.items.map((item) => ({
+                ...item,
+                source: result.feed.name,
+              }))
+            )
+            .filter((item) => item.title && item.link);
+
+          if (headlines.length === 0) {
+            ticker.innerHTML =
+              '<span class="ticker-item">Headlines unavailable. Please check the links.</span>';
+            return;
+          }
+
+          ticker.innerHTML = "";
+          headlines.forEach((item) => {
+            const link = document.createElement("a");
+            link.className = "ticker-item";
+            link.href = item.link;
+            link.target = "_blank";
+            link.rel = "noopener";
+            link.textContent = `${item.title} — ${item.source}`;
+            ticker.appendChild(link);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
