@@ -201,11 +201,105 @@ body {
 }
 
 .chip {
+  position: relative;
   background: #0d1b2a;
   color: #fff;
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 13px;
+}
+
+.chip:focus-visible {
+  outline: 2px solid #9fd3ff;
+  outline-offset: 2px;
+}
+
+/* Chip tooltip for testimonials */
+.chip-tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  width: 260px;
+  background: #0d1b2a;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+}
+
+.chip:hover .chip-tooltip,
+.chip:focus-within .chip-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chip-cite {
+  display: block;
+  margin-top: 6px;
+  font-weight: 700;
+  color: #9fd3ff;
+}
+
+/* Who we help actions */
+.who-help-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  align-items: center;
+}
+
+.action-dropdown {
+  position: relative;
+}
+
+.action-button {
+  background: #0d1b2a;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.action-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #0d1b2a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  min-width: 240px;
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 20;
+}
+
+.action-dropdown:hover .action-menu,
+.action-dropdown:focus-within .action-menu {
+  display: flex;
+}
+
+.action-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.action-menu a:hover,
+.action-menu a:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Engagement section */
