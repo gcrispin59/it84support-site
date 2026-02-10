@@ -7,6 +7,7 @@ This repository contains the static website for IT84 Support.
 Use `Readme_how_to_update.md` for the owner update checklist and options:
 
 - `Readme_how_to_update.md`
+- `Readme_Deployment_Options.md`
 - `testimonials.csv`
 - `rss_feeds.csv`
 
