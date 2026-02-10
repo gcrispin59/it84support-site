@@ -462,6 +462,9 @@ body {
   border-radius: 10px;
   padding: 12px;
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service-map {
@@ -647,5 +650,9 @@ body {
 
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .map-card {
+    max-width: 100%;
   }
 }
