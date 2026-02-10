@@ -1,0 +1,9 @@
+date,active,category,name,url
+2026-02-09,true,Australia,ACSC Alerts,https://www.cyber.gov.au/rss/alerts
+2026-02-09,true,Australia,Scamwatch,https://www.scamwatch.gov.au/rss.xml
+2026-02-09,true,Security,Krebs on Security,https://krebsonsecurity.com/feed/
+2026-02-09,true,Security,CISA Alerts,https://www.cisa.gov/news-events/cybersecurity-advisories
+2026-02-09,true,Security,CSO Online,https://www.csoonline.com/feed/
+2026-02-09,true,Security,BleepingComputer,https://www.bleepingcomputer.com/feed/
+2026-02-09,true,Security,Microsoft Security Blog,https://www.microsoft.com/en-us/security/blog/feed/
+2026-02-09,true,Cloud,Practical365,https://practical365.com/blog/feed/
