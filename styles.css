@@ -359,7 +359,7 @@ body {
   display: flex;
   gap: 24px;
   white-space: nowrap;
-  animation: ticker-scroll 40s linear infinite;
+  animation: ticker-scroll 25s linear infinite;
 }
 
 .ticker:hover .ticker-track,
@@ -385,6 +385,118 @@ body {
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* RSS feed modal: popup showing feed content (not raw XML) */
+.rss-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.rss-modal[hidden] {
+  display: none;
+}
+
+.rss-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 27, 42, 0.7);
+  cursor: pointer;
+}
+
+.rss-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+}
+
+.rss-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #e2e8f0;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #334155;
+}
+
+.rss-modal-close:hover,
+.rss-modal-close:focus-visible {
+  background: #cbd5e1;
+}
+
+.rss-modal-title {
+  margin: 0 40px 16px 0;
+  font-size: 1.25rem;
+  color: #0d1b2a;
+}
+
+.rss-modal-content {
+  margin-top: 8px;
+}
+
+.rss-modal-loading,
+.rss-modal-error {
+  color: #64748b;
+  margin: 0;
+}
+
+.rss-modal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rss-modal-list li {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rss-modal-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.rss-modal-list a {
+  color: #2b6cb0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rss-modal-list a:hover {
+  text-decoration: underline;
+}
+
+.rss-modal-date {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.rss-modal-desc {
+  font-size: 0.9rem;
+  color: #475569;
+  margin: 6px 0 0;
+  line-height: 1.4;
 }
 
 /* Banner links */
