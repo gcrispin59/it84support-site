@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-AU">
   <head>
-    <!-- Booking page placeholder for future Microsoft Bookings integration -->
+    <!-- Booking page: links to Calendly (samuel@it84.com.au). See Readme_Calendly_Setup.md -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IT84 Support | Booking</title>
@@ -64,28 +64,32 @@
       </div>
     </header>
 
-    <!-- Booking content -->
+    <!-- Booking content: links to Calendly (samuel@it84.com.au). See Readme_Calendly_Setup.md -->
     <section class="section">
       <div class="container">
         <h1>Booking</h1>
         <p class="lead">
-          We are setting up an online booking page for IT84 Support.
+          Book a time with IT84 Support via our Calendly page.
         </p>
         <p>
-          This page will link to Microsoft Bookings for Sam Bruce's business
-          applications once the live URL is available.
+          You'll only see times when Samuel is available. His availability
+          schedule and Outlook calendar are connected so busy times are blocked
+          automatically.
         </p>
         <div class="card">
-          <p class="muted">
-            Placeholder: add Microsoft Bookings URL here when ready.
-          </p>
-          <a class="button primary" href="#" aria-disabled="true"
-            >Book an appointment (coming soon)</a
+          <!-- Replace # with your Calendly event type URL (Event Types → event → Share → copy link). -->
+          <a
+            class="button primary"
+            href="#"
+            id="calendly-link"
+            target="_blank"
+            rel="noopener"
+            >Book an appointment</a
           >
         </div>
         <p>
-          For now, please call <strong>08 8125 8358</strong> or use the contact
-          form on the home page.
+          Prefer to talk first? Call <strong>08 8125 8358</strong> or use the
+          contact form on the home page.
         </p>
       </div>
     </section>
